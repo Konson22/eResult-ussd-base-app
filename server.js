@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
 // USSD handler function
 const ussdHandler = (req, res) => {
     // Extract user input
-<<<<<<< HEAD
     const {  sessionId, serviceCode, phoneNumber, text } = req.body;
 
     if(text === ''){
@@ -71,23 +70,6 @@ function sendMessage(to, message){
     });
 }
 
-=======
-    const userInput = req.body.text;
-
-    let responseMessage
-    if(userInput === ''){
-        responseMessage = `Entering yout index number:`;
-    }else{
-      // Process the user input (you can add your logic here)
-        responseMessage = `Thank you We send your results to your number.`;
-    }
-
-    // Send the response to the USSD gateway
-    res.send(`CON ${responseMessage}`);
-};
-
-
->>>>>>> 91b01b274b32a0fc019ec333925aff9016c81ee2
 // Define USSD endpoint
 app.post('/ussd', ussdHandler);
 
@@ -96,40 +78,3 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-
-/*
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const app = express();
-const port = 3000;
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.post('/', (req, res) => {
-    const user_input = req.body.text;
-
-    // Process user input (replace this logic with your own)
-    if (user_input && /^\d+$/.test(user_input)) {
-        const index_no = parseInt(user_input);
-        
-        // Forward SMS (replace this with your SMS sending logic)
-        sendSMS(index_no);
-        
-        res.send(`SMS forwarded successfully for index number ${index_no}`);
-    } else {
-        res.send('Invalid input. Please enter a valid index number.');
-    }
-});
-
-function sendSMS(index_no) {
-    // Replace this with your SMS sending logic
-    console.log(`Forwarded SMS for index number ${index_no}`);
-}
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
-
-
-*/
