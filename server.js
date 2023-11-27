@@ -35,7 +35,7 @@ const ussdHandler = (req, res) => {
         db.get(`SELECT * FROM StudentData WHERE IndexNo = '${text}'`, [], (err, result) => {
             if(err) throw err;
             const data = `
-                ${result.Name} your results are:\n
+                Dear ${result.Name} your results are:\n\n
                 - English = ${result.English} \n
                 - Mathematics = ${result.Mathematics} \n
                 - AdditionalMaths = ${result.AdditionalMaths} \n
