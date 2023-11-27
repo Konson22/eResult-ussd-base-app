@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 // USSD handler function
 const ussdHandler = (req, res) => {
     // Extract user input
+<<<<<<< HEAD
     const {  sessionId, serviceCode, phoneNumber, text } = req.body;
 
     if(text === ''){
@@ -70,6 +71,23 @@ function sendMessage(to, message){
     });
 }
 
+=======
+    const userInput = req.body.text;
+
+    let responseMessage
+    if(userInput === ''){
+        responseMessage = `Entering yout index number:`;
+    }else{
+      // Process the user input (you can add your logic here)
+        responseMessage = `Thank you We send your results to your number.`;
+    }
+
+    // Send the response to the USSD gateway
+    res.send(`CON ${responseMessage}`);
+};
+
+
+>>>>>>> 91b01b274b32a0fc019ec333925aff9016c81ee2
 // Define USSD endpoint
 app.post('/ussd', ussdHandler);
 
