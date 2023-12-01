@@ -47,7 +47,7 @@ const ussdHandler = (req, res) => {
 
             sendMessage(phoneNumber, data)
             // Send the response to the USSD gateway
-            return res.send(`CON Thank you We send your ${result.Name} to your number`);
+            return res.send(`CON ${result.Name} your average is 85.3% \n we will sent your results details in sms shortly.`);
         })
     }
 };
