@@ -28,8 +28,7 @@ const ussdHandler = (req, res) => {
     const {  sessionId, serviceCode, phoneNumber, text } = req.body;
 
     if(text === ''){
-        return res.send(`CON Entering yout index number:`);
-        
+        return res.send(`CON Enter your index number:`);
     }else{
         // Process the user input (you can add your logic here)
         db.get(`SELECT * FROM StudentData WHERE IndexNo = '${text}'`, [], (err, result) => {
