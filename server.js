@@ -33,8 +33,7 @@ const ussdHandler = (req, res) => {
         // Process the user input (you can add your logic here)
         db.get(`SELECT * FROM StudentData WHERE IndexNo = '${text}'`, [], (err, result) => {
             if(err) throw err;
-            const data = `
-                Dear ${result.Name} your results are:\n\n
+            const data = `Dear ${result.Name} your results are:\n
                 - English = ${result.English} \n
                 - Mathematics = ${result.Mathematics} \n
                 - AdditionalMaths = ${result.AdditionalMaths} \n
